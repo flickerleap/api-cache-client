@@ -1,0 +1,31 @@
+{
+  "name": "flickerleap/api-cache",
+  "description": "Client package for api caching server",
+  "type": "Client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Flicker Leap",
+      "email": "info@flickerleap.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "FlickerLeap\\ApiCache\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "FlickerLeap\\ApiCache\\ApiCacheServiceProvider"
+      ],
+      "aliases": {
+        "ApiCache": "FlickerLeap\\ApiCache\\ApiCacheFacade"
+      }
+    }
+  }
+}
