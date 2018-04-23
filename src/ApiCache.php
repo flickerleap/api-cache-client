@@ -10,11 +10,12 @@ class ApiCache
     public static function request(ApiCacheRequest $params)
     {
         $client = new Client();
+        $params->ttl = ($params->ttl) ? $params->ttl : config('api-cache.ttl');
 
         try {
             $response = $client->request('POST', config('api-cache.server'), ['form_params' => $params->toArray()]);
         } catch (GuzzleException $e) {
-            return "Error sending to caching server.";
+            return "Error sending to caching server: " . $e->getMessage();
         }
 
         $body = $response->getBody();

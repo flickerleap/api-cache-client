@@ -8,6 +8,7 @@ class ApiCacheRequest extends Model
 {
     protected $fillable = [
         'key',
+        'ttl',
         'meth',
         'url',
         'data',
