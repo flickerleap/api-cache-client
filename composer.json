@@ -1,5 +1,5 @@
 {
-  "name": "flickerleap/api-cache",
+  "name": "flickerleap/api-cache-client",
   "description": "Client package for api caching server",
   "type": "Client",
   "license": "MIT",
