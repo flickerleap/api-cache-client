@@ -29,5 +29,9 @@ class ApiCacheServiceProvider extends ServiceProvider
             return new ApiCache();
         });
         $this->app->alias(ApiCache::class, 'api-cache');
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/config.php', 'api-cache'
+        );
     }
 }
