@@ -5,6 +5,12 @@
 composer require flickerleap/api-cache-client
 ```
 
+Add to `.env`
+```
+API_CACHE_SERVER_URL=http://localhost.test/request
+API_CACHE_SERVER_TTL=86400
+```
+
 ## Usage
 ```php
 use FlickerLeap\ApiCache\ApiCache;
@@ -18,7 +24,8 @@ use FlickerLeap\ApiCache\ApiCacheRequest;
     $request = new ApiCacheRequest();
 
     $request->key = 'some-unique-identifier';
-    $request->type = 'refresh'; //This will force an update
+    $request->ttl = '10'; //Optional, will overwrite old TTL if new TTL has also already passed. Default set in config file.
+    $request->type = 'refresh'; //Optional, will force a new pull.
     $request->meth = 'GET';
     $request->url = $url;
     $request->data = [
@@ -33,4 +40,9 @@ use FlickerLeap\ApiCache\ApiCacheRequest;
     ];
 
     $response = ApiCache::request($request);
+```
+
+Optional to generate config file
+```bash
+php artisan vendor:publish vendor:publish --provider="FlickerLeap\ApiCache\ApiCacheServiceProvider"
 ```
