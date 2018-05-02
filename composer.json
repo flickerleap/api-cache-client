@@ -2,6 +2,7 @@
   "name": "flickerleap/api-cache-client",
   "description": "Client package for api caching server",
   "type": "Client",
+  "version": "1.0.0",
   "license": "MIT",
   "authors": [
     {
