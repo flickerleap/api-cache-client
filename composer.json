@@ -26,6 +26,9 @@
       "aliases": {
         "ApiCache": "FlickerLeap\\ApiCache\\ApiCacheFacade"
       }
+    },
+    "branch-alias": {
+      "dev-master": "1.0.0"
     }
   }
 }
